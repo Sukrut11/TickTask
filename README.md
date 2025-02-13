@@ -2,7 +2,7 @@
 
 TickTask is a lightweight, intuitive, and powerful To-Do app designed to help you organize, prioritize, and complete your tasks effortlessly. 🚀
 
-✨ Features:
+## ✨ Features:
 
 ✔️ Quick Task Creation – Add tasks with a title and description in seconds.
 
