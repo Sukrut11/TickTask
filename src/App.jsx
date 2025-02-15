@@ -14,7 +14,7 @@ function App(props) {
   }
 
   return (
-    <Router basename="/TickTask/">
+    <Router>
       {/* Navbar is always shown */}
       <Navbar navTitle="TickTask" header1="Home" header2="About" />
 
