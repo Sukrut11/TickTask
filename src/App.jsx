@@ -1,17 +1,16 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import AboutUs from "./Components/AboutUs";
 import HomePage from "./Components/HomePage";
 import Alert from "./Components/Alert";
 
-function App(props) {
-  const [alert, setAlert] = useState(null)
+function App() {
+  const [alert, setAlert] = useState(null);
 
   const showAlert = (type, msg) => {
-    setAlert({ type: type, msg: msg })
-  }
+    setAlert({ type: type, msg: msg });
+  };
 
   return (
     <Router>
@@ -20,17 +19,21 @@ function App(props) {
 
       {/* Define Routes for Home and AboutUs */}
       <div className="container my-3">
-        <Alert alert={alert} />
+        <ConditionalAlert alert={alert} />
         <Routes>
           <Route path="/" element={<HomePage showAlert={showAlert} />} />
-          {/* Passing nameTxt as a prop to HomePage */}
           <Route path="/home" element={<HomePage showAlert={showAlert} />} />
-          {/* Passing setNameTxt to AboutUs to update the name */}
           <Route path="/about" element={<AboutUs />} />
         </Routes>
       </div>
     </Router>
   );
+}
+
+// Helper component to conditionally render Alert
+function ConditionalAlert({ alert }) {
+  const location = useLocation();
+  return location.pathname !== "/about" ? <Alert alert={alert} /> : null;
 }
 
 export default App;
