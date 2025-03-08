@@ -4,6 +4,7 @@ import Navbar from "./Components/Navbar";
 import AboutUs from "./Components/AboutUs";
 import HomePage from "./Components/HomePage";
 import Alert from "./Components/Alert";
+import { Analytics } from "@vercel/analytics/react"
 
 function App() {
   const [alert, setAlert] = useState(null);
@@ -25,6 +26,7 @@ function App() {
           <Route path="/home" element={<HomePage showAlert={showAlert} />} />
           <Route path="/about" element={<AboutUs />} />
         </Routes>
+        <Analytics />
       </div>
     </Router>
   );
