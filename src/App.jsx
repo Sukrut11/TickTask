@@ -16,7 +16,7 @@ function App() {
   return (
     <Router>
       {/* Navbar is always shown */}
-      <Navbar navTitle="TickTask" header1="Home" header2="About" />
+      <Navbar navTitle="TickTask" header1="Home" header2="About Me" />
 
       {/* Define Routes for Home and AboutUs */}
       <div className="container my-3">
