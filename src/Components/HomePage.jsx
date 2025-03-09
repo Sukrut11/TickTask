@@ -118,7 +118,7 @@ export default function HomePage(props) {
 
   return (
     <div className="container my-3">
-      <h2 className="heading mt-4">TickTask. Where Productivity Meets Simplicity.</h2>
+      <h2 className="heading mt-4">Get Things Done, One Tick at a Time !</h2>
       <form>
         <div className="form-group">
           <label className="title mt-3 mb-2">Title</label>
