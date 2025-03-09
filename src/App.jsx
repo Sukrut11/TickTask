@@ -13,6 +13,13 @@ function App() {
     setAlert({ type: type, msg: msg });
   };
 
+  // function will be called from child component Alert
+  const closeAlert = () => {
+    console.log("closeAlert function called");
+    setAlert(null); // Reset alert when close button is clicked
+  };
+
+
   return (
     <Router>
       {/* Navbar is always shown */}
@@ -20,7 +27,7 @@ function App() {
 
       {/* Define Routes for Home and AboutUs */}
       <div className="container my-3">
-        <ConditionalAlert alert={alert} />
+        <ConditionalAlert alert={alert} closeAlert = {closeAlert}/>
         <Routes>
           <Route path="/" element={<HomePage showAlert={showAlert} />} />
           <Route path="/home" element={<HomePage showAlert={showAlert} />} />
@@ -33,9 +40,10 @@ function App() {
 }
 
 // Helper component to conditionally render Alert
-function ConditionalAlert({ alert }) {
+function ConditionalAlert({ alert,  closeAlert}) {
+  // console.log("closeAlert in ConditionalAlert:", closeAlert);
   const location = useLocation();
-  return location.pathname !== "/about" ? <Alert alert={alert} /> : null;
+  return location.pathname !== "/about" ? <Alert alert={alert} closeAlert = {closeAlert}/> : null;
 }
 
 export default App;

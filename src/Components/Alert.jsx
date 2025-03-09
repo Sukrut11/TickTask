@@ -7,12 +7,15 @@ export default function Alert(props) {
     return word[0].toUpperCase() + word.slice(1)
   }
 
+  console.log("closeAlert in Alert component:", props.closeAlert); // Debugging
+
+
   return (
     <>
       <div className="alert-container" style = {{minHeight: "65px"}}>
         {props.alert && <div className={`alert alert-${props.alert.type} alert-dismissible fade show`} role="alert">
           <strong>{capitalizeAlertType(props.alert.type)} !!</strong> {props.alert.msg}
-          <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close" onClick = {props.closeAlert}></button>
         </div>}
       </div>
     </>
