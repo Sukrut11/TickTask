@@ -15,7 +15,6 @@ function App() {
 
   // function will be called from child component Alert
   const closeAlert = () => {
-    console.log("closeAlert function called");
     setAlert(null); // Reset alert when close button is clicked
   };
 

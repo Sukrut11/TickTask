@@ -7,9 +7,6 @@ export default function Alert(props) {
     return word[0].toUpperCase() + word.slice(1)
   }
 
-  console.log("closeAlert in Alert component:", props.closeAlert); // Debugging
-
-
   return (
     <>
       <div className="alert-container" style = {{minHeight: "65px"}}>
