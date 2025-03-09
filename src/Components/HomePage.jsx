@@ -94,17 +94,26 @@ export default function HomePage(props) {
 
   // Function to clear input fields
   const handleOnClear = () => {
-    setTaskInput({ title: "", description: "" });
-    props.showAlert("success", "Task has been cleared.");
+    if (taskInput.title === "" && taskInput.description === "") {
+      return
+    } else {
+      setTaskInput({ title: "", description: "" });
+      props.showAlert("success", "Title and description text have been cleared.");
+    }
   };
 
   // Function to clear all tasks
   const clearAllTasks = () => {
-    updateTaskArray([]);
-    updateCompletedTaskArray([]);
-    localStorage.removeItem("tasks");
-    localStorage.removeItem("completedTasks");
-    props.showAlert("success", "All of your tasks have been cleared.");
+    if (taskArray.length == 0 && completedTaskArray.length == 0) {
+      return
+    }
+    else {
+      updateTaskArray([]);
+      updateCompletedTaskArray([]);
+      localStorage.removeItem("tasks");
+      localStorage.removeItem("completedTasks");
+      props.showAlert("success", "All of your tasks have been cleared.");
+    }
   };
 
   return (
@@ -134,7 +143,7 @@ export default function HomePage(props) {
         <button type="button" onClick={submitTaskToArray} className="btn btn-success my-3">
           Submit
         </button>
-        <button type="button" onClick={handleOnClear} className="btn btn-warning my-3 mx-3" style = {{color: "#000000"}}>
+        <button type="button" onClick={handleOnClear} className="btn btn-warning my-3 mx-3" style={{ color: "#000000" }}>
           Clear Text
         </button>
         <button type="button" className="btn btn-danger" onClick={clearAllTasks}>
